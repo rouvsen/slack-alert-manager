@@ -1,0 +1,15 @@
+server:
+  port: 9292
+
+spring:
+  application:
+    name: slack-alert-manager
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    prometheus:
+      access: unrestricted #default
+
