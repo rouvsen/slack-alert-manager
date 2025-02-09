@@ -9,6 +9,7 @@ groups:
         for: 0s
         labels:
           severity: critical
+          application: "slack-alert-manager"
         annotations:
-          summary: "High 5xx Error Rate Detected"
-          description: "More than 5% of requests resulted in 5xx errors on instance {{ $labels.instance }}."
+          header: "5xx Internal Server Error!!!"
+          exception: "A 5xx error occurred on instance {{ $labels.application }}. Check the logs for details."

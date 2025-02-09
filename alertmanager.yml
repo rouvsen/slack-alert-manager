@@ -12,5 +12,9 @@ receivers:
     slack_configs:
       - channel: '#alerts'
         send_resolved: true
-        title: "{{ .CommonAnnotations.summary }}"
-        text: "{{ .CommonAnnotations.description }}"
+        title: "{{ .CommonAnnotations.header }}"
+        text: |-
+          *Exception:* {{ .CommonAnnotations.exception }}
+          *Timestamp:* {{ (index .Alerts 0).StartsAt }}
+          *Application:* {{ .CommonLabels.application }}
+
